@@ -1,0 +1,590 @@
+/* --------------------------------------- */
+/* ------------- Home page --------------- */
+/* --------------------------------------- */
+
+.homepage {
+  min-height: 100vh;
+  background: linear-gradient(
+rgb(236, 213, 144),
+rgb(177, 172, 161)
+);
+  margin: 0;
+  padding: 0;
+}
+
+.typewriter {
+  /* Below line fixes the image 
+  so the links can sit on top of it */
+  position:fixed;
+  bottom:0;
+  right:0;
+  padding-top: -20px;
+  opacity: 0.8;
+}
+
+.typewriter img {
+  width: 90vw;
+  margin-left: 10px;
+  z-index: 1;
+}
+
+/* -------Typewritter title animation below----------- */
+/* ------------inspired by a codepen from------------- */
+/* ----------------Thiago Teles Pereira--------------- */
+
+
+html {
+  height: 100vh;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.line-1 {
+    font-size: 1.8em;
+    padding-top: 30vh;
+    font-family: 'Special Elite', cursive;
+    width: 24em;
+    margin: 0 auto;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+/* Animation */
+.anim-typewriter{
+  /* Takes 3 seconds (4s) to "type" */
+  animation: typewriter 3s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 11em;}
+}
+
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
+
+/* ---------------------------------------- */
+/* ----------- Home page links  ----------- */
+/* ---------------------------------------- */
+
+
+.home-links {
+  position: fixed;
+  bottom: 20vh;
+  padding-right: 5vw;
+  z-index: 2;
+  border: none;
+}
+
+.home-generate-a-list-button, .home-go-to-archives-button, .home-go-songs-masterlist-button {
+  font-family: 'Special Elite', cursive;
+  color: rgb(71, 71, 71);
+  font-size: 1.6em;
+  padding:  2vh 2vh 2vh 2vh;
+  margin-left: 56vw;
+  border: none;
+  background: none;
+}
+
+/* ---------------------------------------- */
+/* ----------- Segno Homebutton ----------- */
+/* ---------------------------------------- */
+
+
+.segno-image {
+  width: 2.5vw;
+  padding: 2.5vw;
+  opacity: 0.7;
+}
+
+/* --------------------------------------- */
+/* ----------- Master Songlist ----------- */
+/* --------------------------------------- */
+
+
+.masterlist-and-add-a-song {
+  height: 100vh;
+  background: rgb(153, 170, 170);
+  margin: 0;
+  padding: 0;
+}
+
+.master-songlist {
+  font-family: 'Special Elite', cursive;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 0;
+}
+
+.master-songlist-subtitle {
+  font-family: 'Special Elite', cursive;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 0;
+}
+
+.all-songs-map {
+  font-size: 16px;
+  margin-top: 2vh;
+  /*  next two lines make the wee scrollable box */
+  height: 600px;
+  overflow: scroll;
+}
+
+.all-songs-one-box {
+  display: grid;
+  grid-template-columns: 6fr 2fr 1fr 0fr 1fr 1fr .25fr;
+  background-color: rgba(242, 243, 242, 0.658);
+  width: 550px;
+  height: 50px;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+.song-text, .song-length, .abbrev-text {
+  margin: auto 0; 
+}
+
+.song-text {
+  padding-left: 8px;
+}
+
+.abbrev-text {
+  font-weight: bold;
+}
+
+
+/* ------------------------------------------------- */
+/* ----- Buttons for editing/deleting one song ----- */
+/* ------------------------------------------------- */
+
+.song-delete-button {
+  font-size: 10px;
+  background-color: rgba(209, 142, 122, 0.3);
+  height: 28px;
+  width: 46px;
+  margin: 8px 0;
+  border: 2px solid rgba(209, 142, 122, 0.3);
+  border-radius: 4px;
+}
+
+.song-edit-button {
+  font-size: 10px;
+  background-color: rgba(215, 218, 134, 0.5);
+  height: 28px;
+  width: 42px;
+  margin: 8px 0;
+  border: 2px solid rgba(168, 170, 104, 0.5);
+  border-radius: 4px;
+}
+
+.edit-song-form {
+  text-align: center;
+}
+
+/* below line corrected the 
+edit form to be inline */
+
+.edit-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-song-input {
+  background-color: rgba(209, 142, 122, 0.3);
+  padding: 6px;
+  margin: 8px;
+  border-radius: 4px;
+}
+
+.edit-abbrev-input {
+  background-color: rgba(209, 142, 122, 0.3);
+  padding: 6px;
+  margin: 8px;
+  border-radius: 4px;
+}
+
+.edit-length-input {
+  background-color: rgba(209, 142, 122, 0.3);
+  padding: 6px;
+  margin: 8px;
+  border-radius: 4px;
+}
+
+.edit-save-song-button {
+  background-color: rgba(209, 142, 122, 0.3);
+  padding: 6px 20px;
+  margin: 8px 0;
+  border: 2ps solid grey;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------- */
+/* ----- Input & buttons for adding a song ----- */
+/* --------------------------------------------- */
+
+.add-song-header {
+  font-family: 'Special Elite', cursive;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 5vh;
+} 
+
+.new-song-inputs {
+  display: flex;
+  justify-content: center;
+}
+
+.song-input, .abbrev-input, .length-input {
+  font-family: 'Special Elite', cursive;
+  padding: 6px;
+  margin: 8px;
+  border-radius: 4px;
+} 
+
+.song-input {
+  width: 430px;
+}
+
+.abbrev-input {
+  width: 150px;
+  margin-left: 3vw;
+}
+
+.save-song-button {
+  font-family: 'Special Elite', cursive;
+  background-color: rgba(229, 231, 176, 0.781);
+  padding: 6px 20px;
+  margin: 8px 0;
+  border: 2px solid rgba(209, 142, 122, 0.3);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* ------------------------------------------ */
+/* -------- Generated setlists page --------- */
+/* ------------------------------------------ */
+
+.rando-lists-page {
+  text-decoration: bold;
+  height: 100vh;
+  background-color: rgb(199, 196, 183);
+  margin: 0;
+  padding: 0;
+  }
+
+.set-one-title, .set-two-title {
+  font-family: 'Special Elite', cursive;
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: .5vh;
+}
+
+.songs-and-times {
+  display: flex;
+  flex-direction: row;
+  display: grid;
+  grid-template-columns: 3fr 1.5fr .5fr .5fr;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 180%;
+}
+
+.x {
+  width: 18px;
+  height: 18px;
+  padding-top: 12px;
+  padding-left: 10px;
+  opacity: 0.3;
+}
+ 
+.two-rando-sets {
+   display: grid;
+   grid-template-columns: 2fr 2fr ;
+   grid-gap: 8em;
+   padding-left: 7vw;
+   padding-right: 4vw;
+}
+
+.add-random-song {
+  text-align: center;
+  font-size: 18px;
+  color: rgb(236, 226, 214);
+  margin-top: 20px;
+  width: 22vw;
+  height: 4vh;
+  background-color:rgb(152, 161, 152);
+  border: 2px solid rgb(163, 165, 124);
+  border-radius: 3px;
+  font-weight: bold;
+  position: fixed;
+  bottom: 4vh;
+  margin-left: 3vw;
+} 
+
+p {
+  margin-top: 5vh;
+  font-size: 22px;
+  font-weight: bold;
+  color: rgb(114, 99, 99);
+}
+
+/* --------------------------------- */
+/* ----- MQ for mobile screens ----- */
+/* --------------------------------- */
+
+@media only screen
+and (max-width: 580px) {
+  .set-one-title, .set-two-title {
+    font-size: 18px;
+  }
+  
+  .songs-and-times {
+    font-size: 14px;
+  }
+  
+  .x {
+    width: 12px;
+    height: 12px;
+    padding-top: 7px;
+    opacity: 0.4;
+  }
+   
+  .two-rando-sets {
+     grid-gap: 3em;
+  }
+  
+  .add-random-song {
+    font-size: 14px;
+    width: 22vw;
+    height: 6vh;
+    bottom: 6vh;
+  } 
+  
+  p {
+    font-size: 18px;
+  }
+
+  /* MQ for master setlist @ smaller screens */
+
+  .master-songlist {
+    font-size: 20px;
+  }
+  
+  .master-songlist-subtitle {
+    font-size: 10px;
+  }
+  
+  .all-songs-map {
+    font-size: 14px;
+    /*  Below adjusts size of the scrollable box */
+    height: 464px;
+  }
+  
+  .all-songs-one-box {
+    width: 80vw;
+    height: 42px;
+    margin: 9px auto;
+  }
+  
+  .song-text {
+    padding-left: 6px;
+  }
+    
+  /* MQ - Buttons for editing/deleting one song */
+  
+  .song-delete-button {
+    font-size: 9px;
+    height: 26px;
+    width: 36px;
+    margin: 9px 0 0 6px;
+    padding-left: 2px;
+  }
+  
+  .song-edit-button {
+    font-size: 9px;
+    height: 26px;
+    width: 30px;
+    margin: 9px 0 0 6px;
+    padding-left: 4px;
+  }
+  
+  /* below line corrected the 
+  edit form to be inline */
+  
+  .edit-song-input {
+    width: 30vw;
+    margin-left: 1vw;
+  }
+  
+  .edit-abbrev-input {
+    width: 15vw;
+    margin-left: .5vw;
+  }
+  
+  .edit-length-input {
+    width: 5vw;
+    margin-left: .5vw;
+  }
+  
+  .edit-save-song-button {
+    padding-left: 2vw;
+    /* margin: 8px 0; */
+    width: 10vw;
+    border: 2ps solid grey;
+  }
+  
+  
+  /* MQ - Input & buttons for adding a song  */
+  
+  .add-song-header {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 3vh;
+  } 
+  
+  .new-song-inputs {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .song-input, .abbrev-input, .length-input {
+    padding: 6px;
+    margin: 8px;
+  } 
+  
+  .song-input {
+    width: 330px;
+    margin-left: 2vw;
+  }
+  
+  .abbrev-input {
+    width: 100px;
+    margin-left: 4vw;
+  }
+
+  .length-input {
+    width: 70px;
+    margin-left: 3vw;
+  }
+  
+  .save-song-button {
+    padding: .6vh 2vw;
+    margin: 8px 0 0 5vw;
+    font-size: 13px;
+  }
+
+  .home-generate-a-list-button, .home-go-to-archives-button, .home-go-songs-masterlist-button {
+    font-size: 17px;
+  }
+
+  .line-1 {
+   padding-top: 30vh;
+   padding-left: 20vw;
+   margin: 0; 
+   font-size: 24px;  
+  }
+}
+
+/* ----------------------------------------- */
+/* ------ MQ for medium/large screens ------ */
+/* ----------------------------------------- */
+
+@media only screen 
+  and (min-width: 850px){
+
+  .segno-image {
+    width: 1.5vw;
+    padding: 2.5vw;
+    opacity: 0.7;
+  }
+    
+  .typewriter img {
+    width: 80vw;
+  } 
+
+  .home-links {
+    bottom: 16vh;
+    left: 8vw;
+  }
+
+  .line-1 {
+     padding-top: 20vh;
+     padding-left: 6vw;
+     margin: 0;   
+   }
+
+  /* MQ - Random list page @ med/large screen */
+  
+  .set-one-title, .set-two-title {
+    font-size: 24px;
+    padding-bottom: 0vh;
+  }
+  
+  .songs-and-times {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 160%;
+  }
+  
+  .x {
+    width: 14px;
+    height: 14px;
+    padding-top: 2px;
+    padding-left: 10px;
+  }
+   
+  .two-rando-sets {
+     grid-gap: 16em;
+     padding-left: 17vw;
+     padding-right: 14vw;
+  }
+  
+  .add-random-song {
+    width: 16vw;
+    bottom: 4vh;
+  } 
+  
+  p {
+    font-size: 18px;
+  }
+
+  /* MQ - Master list page @ med/large screen */
+
+  .all-songs-map {
+    font-size: 14px;
+    /*  Below adjusts size of the scrollable box */
+    height: 422px;
+  }
+
+  .all-songs-one-box {
+    width: 700px;
+    height: 50px;
+    margin: 10px auto;
+    border-radius: 5px;
+  }
+  
+  
+}
+
+/* ----------------------------------------- */
+/* ------ MQ for x-large screens ------ */
+/* ----------------------------------------- */
+
+@media only screen 
+  and (min-width: 1200px){
+
+    .line-1 {
+      font-size: 3em;
+      padding-top: 36vh;
+  }
+
+    .home-links {
+      bottom: 40vh;
+    }
+
+  }
