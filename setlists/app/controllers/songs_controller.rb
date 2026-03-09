@@ -11,7 +11,7 @@ class SongsController < ApplicationController
   end
 
   def new
-    @song = Song.find(params[song:id])
+    @song = Song.find(params[:id])
     @setlist = Setlist.new
   end
 
@@ -20,8 +20,9 @@ class SongsController < ApplicationController
     @song = Song.new(song_params)
     # Below is a method that saves (??)
     if @song.save
-    # @song.setlists << @song
-    render json: @song
+      render json: @song, status: :created
+    else
+      render json: { errors: @song.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
@@ -44,28 +45,23 @@ class SongsController < ApplicationController
   end
 
   def random_songs_list
-    @allSongs = Song.all
+    @allSongs = Song.all.to_a
     @randomSongs1 = make_random_list
     @randomSongs2 = make_random_list
     render json: { set1: @randomSongs1, set2: @randomSongs2}
   end
-  
+
   def random_songs
-    @allSongs = Song.all
-    randomIndex = rand(0...@allSongs.length)
-    render json: @allSongs[randomIndex]
+    render json: Song.order("RANDOM()").first
   end
-  
+
   private
-  
-  def make_random_list 
-    randomList = []
-    while randomList.length < 15
-      randomIndex = rand(0...@allSongs.length)
-      randomList << @allSongs[randomIndex]
-      @allSongs = @allSongs - [@allSongs[randomIndex]]
-    end
-    randomList
+
+  def make_random_list
+    count = [15, @allSongs.length].min
+    selected = @allSongs.sample(count)
+    @allSongs -= selected
+    selected
   end
 
   def song_params

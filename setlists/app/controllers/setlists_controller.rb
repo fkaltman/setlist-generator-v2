@@ -1,12 +1,12 @@
 class SetlistsController < ApplicationController
   def index
-    @setlists = Setlists.all
+    @setlists = Setlist.all
     render json: @setlists, include: :songs, status: :ok
   end
 
   def show
     @setlist = Setlist.find(params[:id])
-    render json: @setlists, include: :songs, status: :ok
+    render json: @setlist, include: :songs, status: :ok
   end
 
   def create
@@ -31,7 +31,7 @@ class SetlistsController < ApplicationController
 
   private
 
-  def songlist_params
+  def setlist_params
     params.require(:setlist).permit(:date, :venue, :citystate, :length, :notes)
     # do i need :archived in the above line?
   end

@@ -1,0 +1,11 @@
+{
+  "files.exclude": {
+    "**/vendor/bundle": true,
+    "**/node_modules": true,
+    "**/.DS_Store": true
+  },
+  "search.exclude": {
+    "**/vendor/bundle": true,
+    "**/node_modules": true
+  }
+}
