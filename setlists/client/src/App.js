@@ -1,13 +1,10 @@
 import React from 'react';
 import './App.css';
-import { fetchSongs, createSong, fetchSong, deleteSong, editSong } from './services/api-helper';
+import { fetchSongs, createSong, deleteSong, editSong } from './services/api-helper';
 import Home from './components/Home';
 import SongsMasterList from './components/SongsMasterList';
-import SongCreateForm from './components/SongCreateForm';
-import SetlistArchives from './components/SetlistArchives';
 import GenerateSetlist from './components/GenerateSetlist';
-import { Route, Link, Switch, withRouter } from "react-router-dom";
-import Swal from 'sweetalert2';
+import { Route, Switch, withRouter } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
