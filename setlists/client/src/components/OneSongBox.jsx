@@ -37,18 +37,24 @@ export default function OneSongBox(props) {
               confirmButtonColor: "#81b878",
               cancelButtonColor: "#eabfbf",
               confirmButtonText: "Yes, delete it!",
-              preConfirm: () => {
+              preConfirm: async () => {
                 const password =
                   document.getElementById("delete-password").value;
                 if (password !== "safecamp") {
                   Swal.showValidationMessage("Incorrect password");
                   return false;
                 }
-                return true;
+
+                try {
+                  await props.removeSong(props.song.id);
+                  return true;
+                } catch (error) {
+                  Swal.showValidationMessage("Failed to delete song");
+                  return false;
+                }
               },
             }).then((result) => {
               if (result.isConfirmed) {
-                props.removeSong(props.song.id);
                 Swal.fire("Deleted!", "The song has been deleted.", "success");
               }
             });
