@@ -1,6 +1,5 @@
-/* --------------------------------------- */
+
 /* ------------- Home page --------------- */
-/* --------------------------------------- */
 
 .homepage {
   min-height: 100vh;
@@ -67,10 +66,7 @@ html {
   to{border-right-color: transparent;}
 }
 
-/* ---------------------------------------- */
 /* ----------- Home page links  ----------- */
-/* ---------------------------------------- */
-
 
 .home-links {
   position: fixed;
@@ -90,10 +86,7 @@ html {
   background: none;
 }
 
-/* ---------------------------------------- */
 /* ----------- Segno Homebutton ----------- */
-/* ---------------------------------------- */
-
 
 .segno-image {
   width: 2.5vw;
@@ -101,10 +94,7 @@ html {
   opacity: 0.7;
 }
 
-/* --------------------------------------- */
 /* ----------- Master Songlist ----------- */
-/* --------------------------------------- */
-
 
 .masterlist-and-add-a-song {
   height: 100vh;
@@ -130,7 +120,6 @@ html {
 .all-songs-map {
   font-size: 16px;
   margin-top: 2vh;
-  /*  next two lines make the wee scrollable box */
   height: 600px;
   overflow: scroll;
 }
@@ -157,10 +146,7 @@ html {
   font-weight: bold;
 }
 
-
-/* ------------------------------------------------- */
 /* ----- Buttons for editing/deleting one song ----- */
-/* ------------------------------------------------- */
 
 .song-delete-button {
   font-size: 10px;
@@ -223,9 +209,7 @@ edit form to be inline */
   border-radius: 4px;
 }
 
-/* --------------------------------------------- */
 /* ----- Input & buttons for adding a song ----- */
-/* --------------------------------------------- */
 
 .add-song-header {
   font-family: 'Special Elite', cursive;
@@ -240,7 +224,6 @@ edit form to be inline */
 }
 
 .song-input, .abbrev-input, .length-input {
-  font-family: 'Special Elite', cursive;
   padding: 6px;
   margin: 8px;
   border-radius: 4px;
@@ -256,18 +239,15 @@ edit form to be inline */
 }
 
 .save-song-button {
-  font-family: 'Special Elite', cursive;
   background-color: rgba(229, 231, 176, 0.781);
+  font-size: 14px;
   padding: 6px 20px;
   margin: 8px 0;
   border: 2px solid rgba(209, 142, 122, 0.3);
   border-radius: 4px;
-  font-size: 14px;
 }
 
-/* ------------------------------------------ */
 /* -------- Generated setlists page --------- */
-/* ------------------------------------------ */
 
 .rando-lists-page {
   text-decoration: bold;
@@ -333,9 +313,7 @@ p {
   color: rgb(114, 99, 99);
 }
 
-/* --------------------------------- */
 /* ----- MQ for mobile screens ----- */
-/* --------------------------------- */
 
 @media only screen
 and (max-width: 580px) {
@@ -433,7 +411,6 @@ and (max-width: 580px) {
   
   .edit-save-song-button {
     padding-left: 2vw;
-    /* margin: 8px 0; */
     width: 10vw;
     border: 2ps solid grey;
   }
@@ -490,9 +467,7 @@ and (max-width: 580px) {
   }
 }
 
-/* ----------------------------------------- */
 /* ------ MQ for medium/large screens ------ */
-/* ----------------------------------------- */
 
 @media only screen 
   and (min-width: 850px){
@@ -571,9 +546,7 @@ and (max-width: 580px) {
   
 }
 
-/* ----------------------------------------- */
 /* ------ MQ for x-large screens ------ */
-/* ----------------------------------------- */
 
 @media only screen 
   and (min-width: 1200px){
@@ -586,5 +559,4 @@ and (max-width: 580px) {
     .home-links {
       bottom: 40vh;
     }
-
   }
