@@ -2,7 +2,7 @@
 
 <img src="assets/setlist_generator_pg1.png" alt="homescreen" width="250" display="inline"/> <img src="assets/setlist_generator_pg2.png" alt="generated lists" width="250" display="inline"/> <img src="assets/setlist_generator_pg3.png" alt="masterlist" width="250" display="inline"/>
 
-http://setlist-generator.surge.sh/
+https://setlist-generator-v2.vercel.app/
 
 Setlist Generator is an app designed to simplify the touring musician's tedious chore of producing unique, nightly setlists by randomly generating a list of songs from an editable masterlist database. The Setlist Generator will produce a random list and allow the user to eliminate the suggestions that don't work for that set for any reason ranging from musician's personal preference to the demands of a particular geographical location.
 
