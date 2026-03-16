@@ -4,7 +4,7 @@ export default class SongCreateForm extends React.Component {
   render() {
     return (
       <div className="add-song-form">
-        <h2 className="add-song-header">Add a song to the database...</h2>
+        <h2 className="add-song-header">Add a song to the database</h2>
         <div className="new-song-inputs">
           <form
             onSubmit={async (e) => {
@@ -15,7 +15,7 @@ export default class SongCreateForm extends React.Component {
             <input
               className="song-input"
               type="text"
-              placeholder="Name"
+              placeholder="Song Name"
               name="name"
               onChange={this.props.handleChange}
               // formData could be anything
@@ -25,7 +25,7 @@ export default class SongCreateForm extends React.Component {
             <input
               className="abbrev-input"
               type="text"
-              placeholder="Abbreviation"
+              placeholder="Song Abbreviation"
               name="abbreviation"
               onChange={this.props.handleChange}
               value={this.props.formData.abbreviation}

@@ -40,7 +40,7 @@ export default class SongsMasterList extends React.Component {
         />
         <h3 className="master-songlist">Master Songlist Library</h3>
         <h4 className="master-songlist-subtitle">
-          Scroll to view, edit and delete songs below...
+          Scroll to view, edit and delete songs below
         </h4>
         <div className="all-songs-map">
           {this.props.songs.map((song) => (
