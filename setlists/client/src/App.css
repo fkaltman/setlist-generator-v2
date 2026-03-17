@@ -120,7 +120,8 @@ html {
 .all-songs-map {
   font-size: 16px;
   margin-top: 2vh;
-  height: 600px;
+  /* height: 600px; */
+  height: 57%;
   overflow: scroll;
 }
 
@@ -361,7 +362,8 @@ and (max-width: 580px) {
   .all-songs-map {
     font-size: 14px;
     /*  Below adjusts size of the scrollable box */
-    height: 464px;
+    /* height: 464px; */
+    height: 54%;
   }
   
   .all-songs-one-box {
@@ -534,7 +536,8 @@ and (max-width: 580px) {
   .all-songs-map {
     font-size: 14px;
     /*  Below adjusts size of the scrollable box */
-    height: 422px;
+    /* height: 422px; */
+    height: 57%;
   }
 
   .all-songs-one-box {
