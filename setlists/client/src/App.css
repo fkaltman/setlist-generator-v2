@@ -89,8 +89,8 @@ html {
 /* ----------- Segno Homebutton ----------- */
 
 .segno-image {
-  width: 2.5vw;
-  padding: 2.5vw;
+  width: 2vw;
+  padding: 2.5vw 2.5vw 0.5vw 2.5vw;
   opacity: 0.7;
 }
 
@@ -120,8 +120,8 @@ html {
 .all-songs-map {
   font-size: 16px;
   margin-top: 2vh;
-  /* height: 600px; */
-  height: 57%;
+  height: 600px;
+  /* height: 57%; */
   overflow: scroll;
 }
 
@@ -362,8 +362,8 @@ and (max-width: 580px) {
   .all-songs-map {
     font-size: 14px;
     /*  Below adjusts size of the scrollable box */
-    /* height: 464px; */
-    height: 54%;
+    height: 464px;
+    /* height: 54%; */
   }
   
   .all-songs-one-box {
@@ -476,8 +476,7 @@ and (max-width: 580px) {
   and (min-width: 850px){
 
   .segno-image {
-    width: 1.5vw;
-    padding: 2.5vw;
+    width: 30px;
     opacity: 0.7;
   }
     
@@ -536,8 +535,8 @@ and (max-width: 580px) {
   .all-songs-map {
     font-size: 14px;
     /*  Below adjusts size of the scrollable box */
-    /* height: 422px; */
-    height: 57%;
+    height: 422px;
+    /* height: 57%; */
   }
 
   .all-songs-one-box {
