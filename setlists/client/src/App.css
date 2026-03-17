@@ -52,8 +52,8 @@ html {
 
 /* Animation */
 .anim-typewriter{
-  /* Takes 3 seconds (4s) to "type" */
-  animation: typewriter 3s steps(44) 1s 1 normal both,
+  /* Takes 2 seconds (2s) to "type" */
+  animation: typewriter 2s steps(44) 1s 1 normal both,
              blinkTextCursor 500ms steps(44) infinite normal;
 }
 @keyframes typewriter{
@@ -89,8 +89,8 @@ html {
 /* ----------- Segno Homebutton ----------- */
 
 .segno-image {
-  width: 2vw;
-  padding: 2.5vw 2.5vw 0.5vw 2.5vw;
+  width: 16px;
+  padding: 20px 20px 0 20px;
   opacity: 0.7;
 }
 
@@ -476,7 +476,8 @@ and (max-width: 580px) {
   and (min-width: 850px){
 
   .segno-image {
-    width: 30px;
+    width: 24px;
+    padding: 30px;
     opacity: 0.7;
   }
     
