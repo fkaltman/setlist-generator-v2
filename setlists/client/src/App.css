@@ -263,7 +263,16 @@ edit form to be inline */
   font-family: 'Special Elite', cursive;
   text-align: center;
   font-size: 30px;
-  padding-bottom: .5vh;
+  padding-bottom: 0px;
+  margin-bottom: 6px;
+}
+
+.set-time {
+  text-align: center;
+  font-size: 18px;
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 6px;
 }
 
 .songs-and-times {
