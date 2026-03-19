@@ -1,20 +1,18 @@
-import { supabase } from './supabaseClient';
+import { supabase } from "./supabaseClient";
 
 // Setlist API calls
 
 export const fetchSetlists = async () => {
-  const { data, error } = await supabase
-    .from('setlists')
-    .select('*, songs(*)');
+  const { data, error } = await supabase.from("setlists").select("*, songs(*)");
   if (error) throw error;
   return data;
 };
 
 export const fetchSetlist = async (id) => {
   const { data, error } = await supabase
-    .from('setlists')
-    .select('*, songs(*)')
-    .eq('id', id)
+    .from("setlists")
+    .select("*, songs(*)")
+    .eq("id", id)
     .single();
   if (error) throw error;
   return data;
@@ -22,7 +20,7 @@ export const fetchSetlist = async (id) => {
 
 export const createSetlist = async (setlistData) => {
   const { data, error } = await supabase
-    .from('setlists')
+    .from("setlists")
     .insert([setlistData])
     .single();
   if (error) throw error;
@@ -31,9 +29,9 @@ export const createSetlist = async (setlistData) => {
 
 export const deleteSetlist = async (id) => {
   const { data, error } = await supabase
-    .from('setlists')
+    .from("setlists")
     .delete()
-    .eq('id', id)
+    .eq("id", id)
     .single();
   if (error) throw error;
   return data;
@@ -42,9 +40,9 @@ export const deleteSetlist = async (id) => {
 export const editSetlist = async (id, updateSetlist) => {
   const { created_at, updated_at, songs, ...setlistFields } = updateSetlist;
   const { data, error } = await supabase
-    .from('setlists')
+    .from("setlists")
     .update(setlistFields)
-    .eq('id', id)
+    .eq("id", id)
     .single();
   if (error) throw error;
   return data;
@@ -54,18 +52,18 @@ export const editSetlist = async (id, updateSetlist) => {
 
 export const fetchSongs = async () => {
   const { data, error } = await supabase
-    .from('songs')
-    .select('*')
-    .order('name');
+    .from("songs")
+    .select("*")
+    .order("name");
   if (error) throw error;
   return data;
 };
 
 export const fetchSong = async (id) => {
   const { data, error } = await supabase
-    .from('songs')
-    .select('*')
-    .eq('id', id)
+    .from("songs")
+    .select("*")
+    .eq("id", id)
     .single();
   if (error) throw error;
   return data;
@@ -74,7 +72,7 @@ export const fetchSong = async (id) => {
 export const createSong = async (songData) => {
   try {
     const { data, error } = await supabase
-      .from('songs')
+      .from("songs")
       .insert([songData])
       .single();
     if (error) throw error;
@@ -86,10 +84,7 @@ export const createSong = async (songData) => {
 };
 
 export const deleteSong = async (id) => {
-  const { data, error } = await supabase
-    .from('songs')
-    .delete()
-    .eq('id', id);
+  const { data, error } = await supabase.from("songs").delete().eq("id", id);
   if (error) throw error;
   return data;
 };
@@ -97,9 +92,9 @@ export const deleteSong = async (id) => {
 export const editSong = async (id, updateSong) => {
   const { created_at, updated_at, ...songFields } = updateSong;
   const { data, error } = await supabase
-    .from('songs')
+    .from("songs")
     .update(songFields)
-    .eq('id', id)
+    .eq("id", id)
     .single();
   if (error) throw error;
   return data;
@@ -118,9 +113,7 @@ function makeRandomList(songs) {
 }
 
 export const getRandomSong = async () => {
-  const { data, error } = await supabase
-    .from('songs')
-    .select('*');
+  const { data, error } = await supabase.from("songs").select("*");
   if (error) throw error;
 
   const allSongs = [...data];
@@ -129,12 +122,17 @@ export const getRandomSong = async () => {
   return { set1, set2 };
 };
 
-export const getOneRandomSong = async () => {
-  const { data, error } = await supabase
-    .from('songs')
-    .select('*');
+export const getOneRandomSong = async (excludeIds = []) => {
+  const { data, error } = await supabase.from("songs").select("*");
   if (error) throw error;
 
-  const randomIndex = Math.floor(Math.random() * data.length);
-  return data[randomIndex];
+  // Filter out songs that are already in the setlist
+  const availableSongs = data.filter((song) => !excludeIds.includes(song.id));
+
+  // If all songs are used, return a random one anyway
+  if (availableSongs.length === 0)
+    return data[Math.floor(Math.random() * data.length)];
+
+  const randomIndex = Math.floor(Math.random() * availableSongs.length);
+  return availableSongs[randomIndex];
 };
