@@ -105,17 +105,28 @@ export default class GenerateSetlist extends Component {
     }
   };
 
+  handlePrint = () => {
+    window.print();
+  };
+
   render() {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className="rando-lists-page">
-          <img
-            className="segno-image"
-            src={Segno}
-            alt="home button"
-            onClick={this.props.segnoHandleSubmit}
-          />
-            <h2 className="subhead-lists">Add and remove songs or drag to rearrange the order of songs</h2>
+          <div className="setlist-header">
+            <img
+              className="segno-image"
+              src={Segno}
+              alt="home button"
+              onClick={this.props.segnoHandleSubmit}
+            />
+            <button className="print-button" onClick={this.handlePrint}>
+              PRINT SETLIST
+            </button>
+          </div>
+          <h2 className="subhead-lists">
+            Add, remove, and drag to rearrange songs
+          </h2>
           <div className="two-rando-sets">
             {this.state.setOne && (
               <>
