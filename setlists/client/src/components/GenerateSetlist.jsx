@@ -115,6 +115,7 @@ export default class GenerateSetlist extends Component {
             alt="home button"
             onClick={this.props.segnoHandleSubmit}
           />
+            <h2 className="subhead-lists">Add and remove songs or drag to rearrange the order of songs</h2>
           <div className="two-rando-sets">
             {this.state.setOne && (
               <>
