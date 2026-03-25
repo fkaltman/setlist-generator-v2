@@ -10,6 +10,7 @@ export default class GenerateSetlist extends Component {
     this.state = {
       setOne: [],
       setTwo: [],
+      printingSet: null,
     };
   }
 
@@ -105,14 +106,29 @@ export default class GenerateSetlist extends Component {
     }
   };
 
-  handlePrint = () => {
-    window.print();
+  handlePrintSet1 = () => {
+    this.setState({ printingSet: "set1" }, () => {
+      window.print();
+      // Reset after print dialog closes
+      setTimeout(() => this.setState({ printingSet: null }), 100);
+    });
+  };
+
+  handlePrintSet2 = () => {
+    this.setState({ printingSet: "set2" }, () => {
+      window.print();
+      // Reset after print dialog closes
+      setTimeout(() => this.setState({ printingSet: null }), 100);
+    });
   };
 
   render() {
+    const printClass = this.state.printingSet
+      ? `printing-${this.state.printingSet}`
+      : "";
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <div className="rando-lists-page">
+        <div className={`rando-lists-page ${printClass}`}>
           <div className="setlist-header">
             <img
               className="segno-image"
@@ -120,9 +136,14 @@ export default class GenerateSetlist extends Component {
               alt="home button"
               onClick={this.props.segnoHandleSubmit}
             />
-            <button className="print-button" onClick={this.handlePrint}>
-              PRINT SETLIST
-            </button>
+            <div className="print-buttons">
+              <button className="print-button" onClick={this.handlePrintSet1}>
+                Print Set 1
+              </button>
+              <button className="print-button" onClick={this.handlePrintSet2}>
+                Print Set 2
+              </button>
+            </div>
           </div>
           <h2 className="subhead-lists">
             Add, remove, and drag to rearrange songs

@@ -600,21 +600,22 @@ p {
   padding: 10px 20px;
 }
 
+.print-buttons {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
 .print-button {
   display: inline-block;
   background-color: rgba(229, 231, 176, 0.781);
   color: rgb(71, 71, 71);
-  font-size: 16px;
-  padding-top: 4px;
-  margin-top: 19px;
-  margin-left: auto;
-  margin-right: 20px;
+  font-size: 14px;
+  padding: 8px 16px;
   border: 2px solid rgba(163, 165, 124, 0.8);
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
-  width: 18vw;
-  height: 4vh;
 }
 
 .print-button:hover {
@@ -625,6 +626,7 @@ p {
   /* Hide interactive elements */
   .segno-image,
   .print-button,
+  .print-buttons,
   .setlist-header,
   .subhead-lists,
   .add-random-song,
@@ -637,7 +639,7 @@ p {
   .rando-lists-page {
     background-color: white;
     height: auto;
-    padding: 20px;
+    padding: 0;
     margin: 0;
   }
 
@@ -649,14 +651,32 @@ p {
     font-size: 28px;
     text-align: center;
     margin-bottom: 20px;
+    margin-top: 20px;
   }
 
-  /* Optimize set layout for print */
+  /* Default: single column for individual sets */
   .two-rando-sets {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 3em;
-    padding: 0 20px;
+    display: block;
+    padding: 0;
+    text-align: center;
+  }
+
+  /* Center the set containers on page */
+  .set-one,
+  .set-two {
+    display: inline-block;
+    text-align: center;
+    page-break-inside: avoid;
+  }
+
+  /* Hide Set 2 when printing Set 1 */
+  .printing-set1 .set-two {
+    display: none !important;
+  }
+
+  /* Hide Set 1 when printing Set 2 */
+  .printing-set2 .set-one {
+    display: none !important;
   }
 
   /* Adjust titles for print */
@@ -665,12 +685,22 @@ p {
     font-size: 24px;
     margin-top: 0;
     margin-bottom: 10px;
+    text-align: center;
   }
 
   /* Set time styling */
   .set-time {
     font-size: 18px;
     margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* Reset song container to simple block layout */
+  .songs-and-times {
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 0;
   }
 
   /* Song abbreviations */
@@ -678,13 +708,9 @@ p {
     font-size: 30px;
     line-height: 220%;
     color: black;
-    text-align: center; 
-    padding-left: 38px;
-  }
-
-  /* Ensure sets don't break across pages */
-  .set-one,
-  .set-two {
-    page-break-inside: avoid;
+    text-align: center;
+    display: block;
+    margin: 0;
+    padding: 0;
   }
 }
