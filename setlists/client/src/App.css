@@ -622,11 +622,15 @@ p {
   bottom: 2vh;
   margin-left: 3vw;
   width: 22vw;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  text-decoration: underline;
 }
 
 .print-link:hover {
   color: rgb(50, 50, 50);
-  font-size: 16px;
   text-decoration: none;
 }
 

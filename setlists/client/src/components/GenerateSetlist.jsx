@@ -223,9 +223,9 @@ export default class GenerateSetlist extends Component {
                   >
                     ADD A SONG
                   </button>
-                  <a className="print-link" onClick={this.handlePrintSet1}>
+                  <button className="print-link" onClick={this.handlePrintSet1}>
                     Print Set 1
-                  </a>
+                  </button>
                 </div>
                 <div className="set-two">
                   <h1 className="set-two-title">Set 2</h1>
@@ -306,9 +306,9 @@ export default class GenerateSetlist extends Component {
                   >
                     ADD A SONG
                   </button>
-                  <a className="print-link" onClick={this.handlePrintSet2}>
+                  <button className="print-link" onClick={this.handlePrintSet2}>
                     Print Set 2
-                  </a>
+                  </button>
                 </div>
               </>
             )}
