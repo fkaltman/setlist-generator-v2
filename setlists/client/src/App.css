@@ -270,6 +270,10 @@ edit form to be inline */
   color: #2b3b2b;
 }
 
+.for-mobile-only {
+  display: none;
+}
+
 .rando-lists-page {
   text-decoration: bold;
   height: 100vh;
@@ -347,6 +351,10 @@ p {
 /* ----- MQ for mobile screens ----- */
 
 @media only screen and (max-width: 580px) {
+  .for-mobile-only {
+    display: inline;
+  }
+
   .add-remove-drag {
     font-size: 14px;
     text-align: right;
@@ -626,7 +634,7 @@ p {
   border: none;
   padding: 0;
   font-family: inherit;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 .print-link:hover {

@@ -138,7 +138,8 @@ export default class GenerateSetlist extends Component {
             />
           </div>
           <h2 className="add-remove-drag">
-            Add, remove, and drag to <br className="for-mobile-only" />rearrange songs
+            Add, remove, and drag to <br className="for-mobile-only" />
+            rearrange songs
           </h2>
           <div className="two-rando-sets">
             {this.state.setOne && (
