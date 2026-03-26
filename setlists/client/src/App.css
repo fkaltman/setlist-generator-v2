@@ -381,7 +381,7 @@ p {
     bottom: 6vh;
   }
 
-  .print-link {
+  a.print-link {
     margin-left: 6vw;
   }
 
