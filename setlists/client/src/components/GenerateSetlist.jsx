@@ -136,17 +136,9 @@ export default class GenerateSetlist extends Component {
               alt="home button"
               onClick={this.props.segnoHandleSubmit}
             />
-            <div className="print-buttons">
-              <button className="print-button" onClick={this.handlePrintSet1}>
-                Print Set 1
-              </button>
-              <button className="print-button" onClick={this.handlePrintSet2}>
-                Print Set 2
-              </button>
-            </div>
           </div>
-          <h2 className="subhead-lists">
-            Add, remove, and drag to rearrange songs
+          <h2 className="add-remove-drag">
+            Add, remove, and drag to <br className="for-mobile-only" />rearrange songs
           </h2>
           <div className="two-rando-sets">
             {this.state.setOne && (
@@ -231,6 +223,9 @@ export default class GenerateSetlist extends Component {
                   >
                     ADD A SONG
                   </button>
+                  <a className="print-link" onClick={this.handlePrintSet1}>
+                    Print Set 1
+                  </a>
                 </div>
                 <div className="set-two">
                   <h1 className="set-two-title">Set 2</h1>
@@ -311,6 +306,9 @@ export default class GenerateSetlist extends Component {
                   >
                     ADD A SONG
                   </button>
+                  <a className="print-link" onClick={this.handlePrintSet2}>
+                    Print Set 2
+                  </a>
                 </div>
               </>
             )}
