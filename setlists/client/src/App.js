@@ -118,11 +118,12 @@ class App extends React.Component {
           <Route exact path="/" component={Home} />
           <Route
             exact
-            path="/generate-setlist"
-            render={() => (
+            path="/generate-setlist/:count"
+            render={(props) => (
               <GenerateSetlist
                 formData={this.state.formData}
                 segnoHandleSubmit={this.segnoHandleSubmit}
+                setlistCount={parseInt(props.match.params.count)}
               />
             )}
           />

@@ -325,6 +325,18 @@ edit form to be inline */
   padding-right: 4vw;
 }
 
+.single-setlist {
+  display: flex;
+  justify-content: center;
+  padding-left: 30vw;
+  padding-right: 30vw;
+}
+
+.single-setlist .set-one {
+  max-width: 600px;
+  width: 100%;
+}
+
 .add-random-song {
   text-align: center;
   font-size: 18px;
@@ -341,12 +353,60 @@ edit form to be inline */
   margin-left: 3vw;
 }
 
+/* Center button for single setlist layout */
+.single-setlist .add-random-song {
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: 0;
+}
+
 p {
   margin-top: 5vh;
   font-size: 22px;
   font-weight: bold;
   color: rgb(114, 99, 99);
 }
+
+
+/* ----------- Print Styles ----------- */
+
+.setlist-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.print-link {
+  display: block;
+  text-align: center;
+  color: rgb(71, 71, 71);
+  font-size: 14px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 2vh;
+  width: 22vw;
+  margin-left: 0px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+}
+
+.print-link:hover {
+  color: rgb(50, 50, 50);
+  text-decoration: none;
+}
+
+/* Center print link for single setlist layout */
+.single-setlist .print-link {
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: 1px !important;
+  width: auto;
+}
+
+
+/*  ==== MQs MQs MQs MQs  ==== */
 
 /* ----- MQ for mobile screens ----- */
 
@@ -382,15 +442,21 @@ p {
     grid-gap: 3em;
   }
 
+  .single-setlist {
+    padding-left: 16vw;
+    padding-right: 16vw;
+  }
+
   .add-random-song {
     font-size: 14px;
     width: 30vw;
     height: 6vh;
     bottom: 6vh;
+    /* margin-left: 18vw; */
   }
 
-  a.print-link {
-    margin-left: 6vw;
+  .print-link {
+    margin-left: 6vw !important;
   }
 
   p {
@@ -521,8 +587,16 @@ p {
   }
 }
 
-/* ------ MQ for medium/large screens ------ */
+/* ------ MQ for tablet only screens ------ */
+@media only screen and (max-width: 850px) {
+.print-link {
+    margin-left: 3vw;
+  }
+}
 
+
+
+/* ------ MQ for medium/large screens ------ */
 @media only screen and (min-width: 850px) {
   .segno-image {
     width: 24px;
@@ -572,6 +646,11 @@ p {
     padding-right: 14vw;
   }
 
+  .single-setlist {
+    padding-left: 30vw;
+    padding-right: 30vw;
+  }
+
   .add-random-song {
     width: 16vw;
     bottom: 4vh;
@@ -611,37 +690,6 @@ p {
   }
 }
 
-/* ----------- Print Styles ----------- */
-
-.setlist-header {
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-}
-
-.print-link {
-  display: block;
-  text-align: center;
-  color: rgb(71, 71, 71);
-  font-size: 14px;
-  margin-top: 10px;
-  cursor: pointer;
-  position: fixed;
-  bottom: 2vh;
-  margin-left: 3vw;
-  width: 22vw;
-  background: none;
-  border: none;
-  padding: 0;
-  font-family: inherit;
-  /* text-decoration: underline; */
-}
-
-.print-link:hover {
-  color: rgb(50, 50, 50);
-  text-decoration: none;
-}
-
 @media print {
   /* Hide interactive elements */
   .segno-image,
@@ -674,7 +722,8 @@ p {
   }
 
   /* Default: single column for individual sets */
-  .two-rando-sets {
+  .two-rando-sets,
+  .single-setlist {
     display: block;
     padding: 0;
     text-align: center;

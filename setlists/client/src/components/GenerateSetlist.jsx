@@ -18,6 +18,13 @@ export default class GenerateSetlist extends Component {
     this.getRandos();
   };
 
+  componentDidUpdate = async (prevProps) => {
+    // Regenerate setlists if setlistCount changes
+    if (prevProps.setlistCount !== this.props.setlistCount) {
+      this.getRandos();
+    }
+  };
+
   getOneSong1 = async () => {
     const usedIds = this.state.setOne.map((song) => song.id);
     let newSong = await getOneRandomSong(usedIds);
@@ -36,10 +43,17 @@ export default class GenerateSetlist extends Component {
 
   getRandos = async () => {
     const randomList = await getRandomSong();
-    this.setState({
-      setOne: randomList.set1,
-      setTwo: randomList.set2,
-    });
+    if (this.props.setlistCount === 1) {
+      this.setState({
+        setOne: randomList.set1,
+        setTwo: [],
+      });
+    } else {
+      this.setState({
+        setOne: randomList.set1,
+        setTwo: randomList.set2,
+      });
+    }
   };
 
   removeGeneratedSong1 = async (id) => {
@@ -126,6 +140,8 @@ export default class GenerateSetlist extends Component {
     const printClass = this.state.printingSet
       ? `printing-${this.state.printingSet}`
       : "";
+    const setlistLayoutClass =
+      this.props.setlistCount === 1 ? "single-setlist" : "two-rando-sets";
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className={`rando-lists-page ${printClass}`}>
@@ -141,7 +157,7 @@ export default class GenerateSetlist extends Component {
             Add, remove, and drag to <br className="for-mobile-only" />
             rearrange songs
           </h2>
-          <div className="two-rando-sets">
+          <div className={setlistLayoutClass}>
             {this.state.setOne && (
               <>
                 <div className="set-one">
@@ -228,89 +244,97 @@ export default class GenerateSetlist extends Component {
                     Print Set 1
                   </button>
                 </div>
-                <div className="set-two">
-                  <h1 className="set-two-title">Set 2</h1>
-                  <p className="set-time">
-                    {Math.ceil(
-                      this.state.setTwo.reduce(
-                        (sum, song) => sum + song.length,
-                        0,
-                      ),
-                    )}{" "}
-                    minutes
-                  </p>
-                  <hr />
-                  <Droppable droppableId="setTwo">
-                    {(provided) => (
-                      <div ref={provided.innerRef} {...provided.droppableProps}>
-                        {this.state.setTwo.map((song, index) => (
-                          <Draggable
-                            key={song.id.toString()}
-                            draggableId={song.id.toString()}
-                            index={index}
-                          >
-                            {(provided, snapshot) => (
-                              <div
-                                className="info"
-                                ref={provided.innerRef}
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                                style={{
-                                  ...provided.draggableProps.style,
-                                  opacity: snapshot.isDragging ? 0.8 : 1,
-                                }}
-                              >
-                                <div className="songs-and-times">
-                                  <div
-                                    className="s-abbrev"
-                                    style={{
-                                      color: snapshot.isDragging
-                                        ? "#999"
-                                        : "inherit",
-                                    }}
-                                  >
-                                    {song.abbreviation}
+                {this.props.setlistCount === 2 && (
+                  <div className="set-two">
+                    <h1 className="set-two-title">Set 2</h1>
+                    <p className="set-time">
+                      {Math.ceil(
+                        this.state.setTwo.reduce(
+                          (sum, song) => sum + song.length,
+                          0,
+                        ),
+                      )}{" "}
+                      minutes
+                    </p>
+                    <hr />
+                    <Droppable droppableId="setTwo">
+                      {(provided) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.droppableProps}
+                        >
+                          {this.state.setTwo.map((song, index) => (
+                            <Draggable
+                              key={song.id.toString()}
+                              draggableId={song.id.toString()}
+                              index={index}
+                            >
+                              {(provided, snapshot) => (
+                                <div
+                                  className="info"
+                                  ref={provided.innerRef}
+                                  {...provided.draggableProps}
+                                  {...provided.dragHandleProps}
+                                  style={{
+                                    ...provided.draggableProps.style,
+                                    opacity: snapshot.isDragging ? 0.8 : 1,
+                                  }}
+                                >
+                                  <div className="songs-and-times">
+                                    <div
+                                      className="s-abbrev"
+                                      style={{
+                                        color: snapshot.isDragging
+                                          ? "#999"
+                                          : "inherit",
+                                      }}
+                                    >
+                                      {song.abbreviation}
+                                    </div>
+                                    <div
+                                      className="s-length"
+                                      style={{
+                                        color: snapshot.isDragging
+                                          ? "#999"
+                                          : "inherit",
+                                      }}
+                                    >
+                                      {" "}
+                                      {song.length}
+                                    </div>
+                                    <img
+                                      className="x"
+                                      src={X}
+                                      alt="remove"
+                                      onClick={() => {
+                                        this.removeGeneratedSong2(song.id);
+                                      }}
+                                    />
                                   </div>
-                                  <div
-                                    className="s-length"
-                                    style={{
-                                      color: snapshot.isDragging
-                                        ? "#999"
-                                        : "inherit",
-                                    }}
-                                  >
-                                    {" "}
-                                    {song.length}
-                                  </div>
-                                  <img
-                                    className="x"
-                                    src={X}
-                                    alt="remove"
-                                    onClick={() => {
-                                      this.removeGeneratedSong2(song.id);
-                                    }}
-                                  />
                                 </div>
-                              </div>
-                            )}
-                          </Draggable>
-                        ))}
-                        {provided.placeholder}
-                      </div>
-                    )}
-                  </Droppable>
-                  <button
-                    className="add-random-song"
-                    onClick={() => {
-                      this.getOneSong2();
-                    }}
-                  >
-                    ADD A SONG
-                  </button>
-                  <button className="print-link" onClick={this.handlePrintSet2}>
-                    Print Set 2
-                  </button>
-                </div>
+                              )}
+                            </Draggable>
+                          ))}
+                          {provided.placeholder}
+                        </div>
+                      )}
+                    </Droppable>
+                    <button
+                      className="add-random-song"
+                      onClick={() => {
+                        this.getOneSong2();
+                      }}
+                    >
+                      ADD A SONG
+                    </button>
+                    <button
+                      className="print-link"
+                      onClick={this.handlePrintSet2}
+                    >
+                      Print Set 2
+                    </button>
+                  </div>
+                )}
               </>
             )}
           </div>

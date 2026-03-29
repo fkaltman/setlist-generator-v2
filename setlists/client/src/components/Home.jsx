@@ -8,9 +8,15 @@ export default function Home() {
     <div className="homepage">
       <p className="line-1 anim-typewriter">Setlist Generator</p>
       <div className="home-links">
-        <Link to="/generate-setlist">
+        <Link to="/generate-setlist/1">
           <button className="home-generate-a-list-button" onClick={() => {}}>
-            Create New Setlists
+            Generate one setlist
+          </button>
+        </Link>
+        <br />
+        <Link to="/generate-setlist/2">
+          <button className="home-generate-a-list-button" onClick={() => {}}>
+            Generate two setlists
           </button>
         </Link>
         <br />
@@ -19,7 +25,7 @@ export default function Home() {
         </Link><br /> */}
         <Link to="/songs-masterlist">
           <button className="home-go-songs-masterlist-button">
-            Songs Masterlist
+            Masterlist of songs
           </button>
         </Link>
       </div>
