@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Typewriter from "../assets/typewriter_nw_700.png";
 import Typewriter from "../assets/typewriter_nw_600.webp";
+import Typewriter2 from "../assets/half_typewriter.png";
 
 export default function Home() {
   return (
     <div className="homepage">
-      <p className="line-1 anim-typewriter">Setlist Generator</p>
+      {/* <p className="line-1 anim-typewriter">Setlist Generator</p> */}
+      <p className="line-2 anim-typewriter2">Setlist Generator</p>
       <div className="home-links">
         <Link to="/generate-setlist/1">
           <button className="home-generate-a-list-button" onClick={() => {}}>
@@ -29,8 +30,9 @@ export default function Home() {
           </button>
         </Link>
       </div>
-      <div className="typewriter">
-        <img src={Typewriter} alt="typewriter" />
+      <div className="typewriter2">
+        {/* <img src={Typewriter} alt="typewriter" /> */}
+        <img src={Typewriter2} alt="typewriter" />
       </div>
     </div>
   );
