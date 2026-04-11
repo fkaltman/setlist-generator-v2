@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Typewriter from "../assets/typewriter_nw_600.webp";
 import Typewriter2 from "../assets/half_typewriter.png";
 
 export default function Home() {
