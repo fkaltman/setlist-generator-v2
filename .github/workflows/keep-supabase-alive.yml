@@ -12,6 +12,5 @@ jobs:
     steps:
       - name: Ping Supabase to prevent pausing
         run: |
-          curl -v "https://lamodjruqupnjlgshhww.supabase.co/rest/v1/songs?select=id&limit=1" \
-            -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxhbW9kanJ1cXVwbmpsZ3NoaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwNDczNjUsImV4cCI6MjA4NzYyMzM2NX0.s0XvqKp63xfIvlMfrHHKcnTS1jpQyha4-uNvCxKg3v0" \
-            -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxhbW9kanJ1cXVwbmpsZ3NoaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIwNDczNjUsImV4cCI6MjA4NzYyMzM2NX0.s0XvqKp63xfIvlMfrHHKcnTS1jpQyha4-uNvCxKg3v0"
+          curl -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/songs?select=id&limit=1" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}"
