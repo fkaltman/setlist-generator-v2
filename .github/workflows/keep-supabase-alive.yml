@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Ping Supabase to prevent pausing
         run: |
-          curl -s -o /dev/null -w "%{http_code}" \
-            "${{ secrets.SUPABASE_URL }}/rest/v1/songs?select=id&limit=1" \
+          echo "URL: ${{ secrets.SUPABASE_URL }}"
+          curl -v "${{ secrets.SUPABASE_URL }}/rest/v1/songs?select=id&limit=1" \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
